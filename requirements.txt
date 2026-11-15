@@ -3,3 +3,4 @@ numpy
 pandas
 plotly
 pillow
+opencv-python-headless
