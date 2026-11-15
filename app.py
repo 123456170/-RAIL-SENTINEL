@@ -197,8 +197,8 @@ def connector_set(name: str, status: str, actor: str) -> None:
 
 # ═══════════════════════════════════════════════════════════ safety / domain
 PII_PATTERNS = [(re.compile(r"[A-Za-z0-9_.+-]+@[A-Za-z0-9-]+\.[A-Za-z0-9-.]+"), "[REDACTED_EMAIL]"),
+                (re.compile(r"\b\d{3}-\d{2}-\d{4}\b"), "[REDACTED_ID]"),  # before phone, which would otherwise swallow it
                 (re.compile(r"\+?\d[\d \-()]{8,}\d"), "[REDACTED_PHONE]"),
-                (re.compile(r"\b\d{3}-\d{2}-\d{4}\b"), "[REDACTED_ID]"),
                 (re.compile(r"\b(?:Mr|Ms|Mrs|Dr)\.?\s+[A-Z][a-z]+\s+[A-Z][a-z]+\b"), "[REDACTED_NAME]")]
 INJECTION_PATTERNS = ["ignore previous", "ignore all", "override policy", "disable kill", "set risk_tier",
                       "approve immediately", "exfiltrate", "bypass approval", "sudo", "system prompt",
